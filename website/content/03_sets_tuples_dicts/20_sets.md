@@ -230,3 +230,9 @@ Next, let's find the intersection. We'll create a new `set` with *only* the item
 There are other useful operations available on `set`s, such as checking if one set is a subset, a superset, differences, and more, but I don't have time to cover them all. Python also has a `frozenset` type, if you need the functionality of a `set` in an immutable package (meaning that the contents can't be changed after creation).
 
 Find out more by reading the [documentation](https://docs.python.org/3/library/stdtypes.html#set), or calling `help()` on `set`.
+
+Module xdrlib
+Packing and unpacking of External Data Representation (XDR) data as used in some remote procedure call systems.
+
+NumPy
+The NumPy package defines another array type.
