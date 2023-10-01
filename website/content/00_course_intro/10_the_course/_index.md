@@ -29,6 +29,59 @@ You can also use the left and right keyboard arrows to navigate between pages.
 {{% /notice %}}
 
 #### Breadcrumbs
+import random
+
+# List of words for the game
+word_list = ["apple", "banana", "cherry", "grape", "orange", "strawberry", "watermelon"]
+
+# Choose a random word from the list
+word_to_guess = random.choice(word_list)
+
+# Initialize variables
+attempts = 6
+guessed_letters = []
+
+# Display initial message
+print("Welcome to the Word Guessing Game!")
+print("Try to guess the word. You have", attempts, "attempts.")
+
+# Main game loop
+while attempts > 0:
+    # Display the word with dashes for missing letters
+    display_word = ""
+    for letter in word_to_guess:
+        if letter in guessed_letters:
+            display_word += letter
+        else:
+            display_word += "_"
+
+    print(display_word)
+
+    # Ask the user for a letter guess
+    guess = input("Guess a letter: ").lower()
+
+    # Check if the guess is a single letter and not guessed before
+    if len(guess) == 1 and guess.isalpha() and guess not in guessed_letters:
+        guessed_letters.append(guess)
+
+        # Check if the guess is in the word
+        if guess in word_to_guess:
+            print("Correct guess!")
+        else:
+            print("Incorrect guess.")
+            attempts -= 1
+    else:
+        print("Invalid input. Please guess a single letter you haven't guessed before.")
+
+    # Check if the user has guessed the entire word
+    if set(word_to_guess).issubset(guessed_letters):
+        print("Congratulations! You've guessed the word:", word_to_guess)
+        break
+
+# Check if the user won or lost
+if attempts == 0:
+    print("Game over! You've run out of attempts. The word was:", word_to_guess)
+
 
 ![Header](/00_course_intro/images/header.png?classes=shadow&outline)
 
